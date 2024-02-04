@@ -1,9 +1,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(Animator))]
-public class PlayerController : MonoBehaviour
+public class MovePlayer : MonoBehaviour
 {
     private const string Horizontal = "Horizontal";
+    private const string SpeedParameterName = "Speed";
 
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
@@ -34,11 +35,11 @@ public class PlayerController : MonoBehaviour
         if (velocity.x != 0.0f)
         {
             _rigidbody.velocity = velocity;
-            _animator.SetFloat("Speed", _speed);
+            _animator.SetFloat(SpeedParameterName, _speed);
         }
         else
         {
-            _animator.SetFloat("Speed", 0.0f);
+            _animator.SetFloat(SpeedParameterName, 0.0f);
         }
         
         FlipPlayer();
