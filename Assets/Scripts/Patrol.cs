@@ -31,8 +31,16 @@ public class Patrol : MonoBehaviour
             }
 
             _targetPointPosition = _points[_pointIndex].position;
+            Flip();
         }
 
         transform.position = Vector2.MoveTowards(transform.position, _targetPointPosition, _speed * Time.deltaTime);
+    }
+
+    private void Flip()
+    {
+        Vector2 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
 }
