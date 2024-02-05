@@ -201,7 +201,10 @@ GameObject:
   - component: {fileID: 319867161}
   - component: {fileID: 319867160}
   - component: {fileID: 319867159}
+  - component: {fileID: 319867165}
+  - component: {fileID: 319867164}
   - component: {fileID: 319867162}
+  - component: {fileID: 319867163}
   - component: {fileID: 319867158}
   - component: {fileID: 319867157}
   m_Layer: 6
@@ -377,6 +380,45 @@ MonoBehaviour:
   _speed: 5
   _jumpForce: 7
   _collider: {fileID: 319867157}
+--- !u!114 &319867163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319867156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e33418c7472b48b1b3553964a86a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+--- !u!114 &319867164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319867156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e33418c7472b48b1b3553964a86a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
+--- !u!114 &319867165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319867156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0995bfb9bfc25da438f31410a1ab0013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!1 &388189179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1389,24 @@ PolygonCollider2D:
       - {x: 4.196165, y: -3.00702}
       - {x: 2.6130066, y: -3.561376}
   m_UseDelaunayMesh: 0
+--- !u!1 &1390459965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7363040345499070753, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
+  m_PrefabInstance: {fileID: 4159486221724870808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1390459968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390459965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e33418c7472b48b1b3553964a86a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
 --- !u!1 &1624840931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,6 +3124,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62702841479608120, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
+      propertyPath: _health
+      value: 
+      objectReference: {fileID: 1390459968}
+    - target: {fileID: 1380772398994431858, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 319867156}
     - target: {fileID: 1380772398994431858, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
       propertyPath: _rigidbody
       value: 
@@ -3080,6 +3148,10 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 2140112582}
+    - target: {fileID: 1527961433913828519, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1596920807734776694, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.12
@@ -3124,10 +3196,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8691282421776125523, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7363040345499070753, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1390459968}
   m_SourcePrefab: {fileID: 100100000, guid: 631efea37767fef4e98f8e368e7e7436, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -16,6 +16,5 @@ public class SpawnCoins : MonoBehaviour
         {
             Instantiate(_prefab, _spawnPoints[i].position, Quaternion.identity);
         }
-
     }
 }

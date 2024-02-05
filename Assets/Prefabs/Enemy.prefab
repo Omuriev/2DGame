@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5067880391806580012}
   - component: {fileID: 62702841479608120}
   - component: {fileID: 1380772398994431858}
+  - component: {fileID: -7336513924800908696}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -118,7 +119,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.017356992, y: -0.36102444}
@@ -184,6 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe2e9d7380a58b40a1a285e9c099116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 0}
+  _firstAidKitPrefab: {fileID: 2547304768508599228, guid: aabce0fb68e0c0043a67aeb48f92aae8, type: 3}
+  _firstAidKitSpawnOffset: {x: 1, y: 1}
 --- !u!114 &1380772398994431858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,4 +203,21 @@ MonoBehaviour:
   _points:
   - {fileID: 0}
   - {fileID: 0}
-  _speed: 5
+  _speed: 2
+  _maxDistanceToTarget: 0.5
+  _distanceForChase: 10
+  _rigidbody: {fileID: 8691282421776125523}
+  _player: {fileID: 0}
+--- !u!114 &-7336513924800908696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363040345499070753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418e33418c7472b48b1b3553964a86a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1
