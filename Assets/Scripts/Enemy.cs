@@ -5,6 +5,9 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private Health _health;
     [SerializeField] private FirstAidKit _firstAidKitPrefab;
     [SerializeField] private Vector2 _firstAidKitSpawnOffset = new Vector2(1f, 1f);
+    [SerializeField] private float _speed;
+
+    public float Speed => _speed;
 
     private void OnEnable()
     {

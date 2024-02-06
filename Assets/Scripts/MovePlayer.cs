@@ -9,6 +9,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private CapsuleCollider2D _collider;
+    [SerializeField] private LayerMask _groundLayer;
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
@@ -64,7 +65,7 @@ public class MovePlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_collider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (_collider.IsTouchingLayers(_groundLayer))
         {
             _isJumping = false;
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnCoins : MonoBehaviour
+public class CoinsSpawner : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Coin _prefab;

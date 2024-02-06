@@ -1,12 +1,8 @@
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : MonoBehaviour 
 {
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out MovePlayer playerController))
-        {
-            Destroy(gameObject);
-        }
-    }
+    [SerializeField]private int _value = 1;
+
+    public int Value => _value;
 }
