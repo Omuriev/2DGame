@@ -7,11 +7,12 @@ public class Patrol : MonoBehaviour
     [SerializeField] private float _maxDistanceToTarget = 0.5f;
     [SerializeField] private float _distanceForChase = 3.0f;
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private GameObject _player;
+    [SerializeField] private BoxCollider2D _detectionZone;
 
     private Vector3 _targetPointPosition;
     private int _pointIndex = 0;
     private bool _isChasing = false;
+    private GameObject _player;
 
     private void Start()
     {
@@ -32,33 +33,34 @@ public class Patrol : MonoBehaviour
 
     private void Chase()
     {
-        var distance = (_player.transform.position - transform.position).normalized;
+        Vector3 distance = (_player.transform.position - transform.position).normalized;
         transform.position += new Vector3(distance.x, _rigidbody.velocity.y) * _speed * Time.deltaTime;
     }
 
     private void MoveToPoint()
     {
-        if (Vector2.Distance(transform.position, _player.transform.position) <= _distanceForChase)
+        if (Vector2.Distance(transform.position, _targetPointPosition) <= _maxDistanceToTarget)
         {
-            _isChasing = true;
-        }
+            _pointIndex++;
 
-        if (_isChasing == false)
-        {
-            if (Vector2.Distance(transform.position, _targetPointPosition) <= _maxDistanceToTarget)
+            if (_pointIndex == _points.Length)
             {
-                _pointIndex++;
-
-                if (_pointIndex == _points.Length)
-                {
-                    _pointIndex = 0;
-                }
-
-                _targetPointPosition = _points[_pointIndex].position;
-                Flip();
+                _pointIndex = 0;
             }
 
-            transform.position = Vector2.MoveTowards(transform.position, _targetPointPosition, _speed * Time.deltaTime);
+            _targetPointPosition = _points[_pointIndex].position;
+            Flip();
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, _targetPointPosition, _speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out MovePlayer movePlayer))
+        {
+            _player = movePlayer.gameObject;
+            _isChasing = true;
         }
     }
 
