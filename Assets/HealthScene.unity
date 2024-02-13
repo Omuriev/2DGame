@@ -825,6 +825,8 @@ GameObject:
   - component: {fileID: 718214932}
   - component: {fileID: 718214931}
   - component: {fileID: 718214930}
+  - component: {fileID: 718214936}
+  - component: {fileID: 718214935}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -846,8 +848,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 1617846801}
   _healthInText: {fileID: 295134349}
-  _healthSlider: {fileID: 783772339}
-  _healthSmoothlySlider: {fileID: 434214882}
 --- !u!114 &718214931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +933,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &718214935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718214929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389098087256718479b133c1530b8405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1617846801}
+  Slider: {fileID: 434214882}
+--- !u!114 &718214936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718214929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985b477559bfd0541a72ca5616e4159f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: {fileID: 1617846801}
+  Slider: {fileID: 783772339}
 --- !u!1 &783772338
 GameObject:
   m_ObjectHideFlags: 0
