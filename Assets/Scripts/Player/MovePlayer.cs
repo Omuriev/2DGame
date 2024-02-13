@@ -48,10 +48,13 @@ public class MovePlayer : MonoBehaviour
 
     private void FlipPlayer()
     {
-        if (_rigidbody.velocity.x != 0)
-        {
-            _spriteRenderer.flipX = _rigidbody.velocity.x > 0 ? false : true;
-        }
+        float maxFlipThreshold = 0.1f;
+        float minFlipThreshold = -0.1f;
+
+        if (_rigidbody.velocity.x < maxFlipThreshold && _rigidbody.velocity.x > minFlipThreshold)
+            return;
+        
+        _spriteRenderer.flipX = _rigidbody.velocity.x > 0 ? false : true;
     }
 
     private void Jump()

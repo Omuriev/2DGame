@@ -5,20 +5,24 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
 
-    public Action Dead;
+    public event Action Dead;
+    public event Action<float, float> ChangedHealth;
+
     public float CurrentHealth { get; private set; }
     public bool IsDead { get; private set; } = false;
 
+    public float MaxHealth => _maxHealth;
+
     private void Start()
     {
-        CurrentHealth = _maxHealth;
+        SetHealth(_maxHealth);
     }
 
     public void Heal(float value)
     {
-        if (value > 0)
+        if (value > 0 && IsDead == false)
         {
-            CurrentHealth = Mathf.Clamp(CurrentHealth + value, 0f, _maxHealth);
+            SetHealth(CurrentHealth + value);
         }
     }
 
@@ -26,7 +30,7 @@ public class Health : MonoBehaviour
     {
         if (IsDead == false && damage > 0)
         {
-            CurrentHealth -= damage;
+            SetHealth(CurrentHealth - damage);
 
             if (CurrentHealth <= 0f)
             {
@@ -34,5 +38,11 @@ public class Health : MonoBehaviour
                 Dead?.Invoke();
             }
         }
+    }
+
+    private void SetHealth(float value)
+    {
+        CurrentHealth = Mathf.Clamp(value, 0, _maxHealth);
+        ChangedHealth?.Invoke(CurrentHealth, _maxHealth);
     }
 }

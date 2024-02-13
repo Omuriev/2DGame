@@ -4,7 +4,7 @@ public class Attack : MonoBehaviour
 {
     [SerializeField] private float _damage;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Health health))
         {
@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void HitEnemy(Health health)
+    protected void HitEnemy(Health health)
     {
         health.TakeDamage(_damage);
     }
