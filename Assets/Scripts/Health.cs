@@ -43,7 +43,6 @@ public class Health : MonoBehaviour
     private void SetHealth(float value)
     {
         CurrentHealth = Mathf.Clamp(value, 0, _maxHealth);
-        Debug.Log(CurrentHealth);
         ChangedHealth?.Invoke(CurrentHealth, _maxHealth);
     }
 }
