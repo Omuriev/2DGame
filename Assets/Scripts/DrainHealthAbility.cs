@@ -6,7 +6,9 @@ public class DrainHealthAbility : MonoBehaviour
 {
     [SerializeField] private float _drainValue = 0.1f;
     [SerializeField] private Health _health;
-    [SerializeField] private float _timeBetweenDraining = 1.0f; 
+    [SerializeField] private float _timeBetweenDraining = 1.0f;
+    [SerializeField] private float _radius = 4.0f;
+    [SerializeField] private LayerMask _enemyLayer;
 
     private bool _isDrainStarted = false;
 
@@ -84,8 +86,7 @@ public class DrainHealthAbility : MonoBehaviour
 
     private Collider2D[] FindEnemies()
     {
-        LayerMask enemyLayer = LayerMask.GetMask("Enemy");
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 4, enemyLayer);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _radius, _enemyLayer);
 
         return hitColliders;
     }
